@@ -18,7 +18,7 @@ namespace server_side{
 
         MySerialServer();
 
-        void open(int port, IClientHandler clientHandler) override;
+        void open(int port, IClientHandler *clientHandler) override;
 
         void stop() override;
 

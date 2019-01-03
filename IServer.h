@@ -9,7 +9,7 @@ namespace server_side{
 
     public:
 
-        virtual void open(int port, IClientHandler clientHandler) = 0;
+        virtual void open(int port, IClientHandler *clientHandler) = 0;
 
         virtual void recv() = 0;
 
