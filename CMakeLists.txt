@@ -3,4 +3,4 @@ project(ServerApplication)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ServerApplication main.cpp)
+add_executable(ServerApplication main.cpp IServer.h)
