@@ -23,6 +23,10 @@ namespace server_side {
 
         void handleClient(std::istream inputStream, std::ostream outputStream) override {
             //TODO
+
+            inputStream.getline();
+
+
         }
 
     };

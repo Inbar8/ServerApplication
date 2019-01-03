@@ -9,7 +9,7 @@ server_side::MySerialServer::MySerialServer() {run = true;}
 
 void server_side::MySerialServer::open(int port, server_side::IClientHandler clientHandler) {
 
-    //TODO open different thread
+            //TODO open different thread
 
     while (run) {
 
@@ -19,7 +19,7 @@ void server_side::MySerialServer::open(int port, server_side::IClientHandler cli
         clientHandler.handleClient()
 
     }
-
+            //TODO open different thread
 
 
 }
