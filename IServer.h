@@ -5,7 +5,13 @@ namespace server_side{
 
     class IServer{
 
-        virtual void open()=0;
+    public:
+
+        virtual void open(int port) = 0;
+
+        virtual void recv() = 0;
+
+        virtual void stop() = 0;
 
 
 
