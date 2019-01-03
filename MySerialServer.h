@@ -1,6 +1,3 @@
-//
-// Created by shaked on 1/3/19.
-//
 
 #ifndef SERVERAPPLICATION_MYSERIALSERVER_H
 #define SERVERAPPLICATION_MYSERIALSERVER_H
@@ -9,11 +6,25 @@
 
 namespace server_side{
 
-    class MySerialServer  {
+    class MySerialServer : public IServer  {
+
+        bool run;
 
         //TODO declerations
 
+
+
+    public:
+
+        MySerialServer();
+
+        void open(int port, IClientHandler clientHandler) override;
+
+        void stop() override;
+
     };
+
+
 
 }
 

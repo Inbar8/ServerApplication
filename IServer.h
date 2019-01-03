@@ -1,13 +1,15 @@
 #ifndef SERVERAPPLICATION_ISERVER_H
 #define SERVERAPPLICATION_ISERVER_H
 
+#include "IClientHandler.h"
+
 namespace server_side{
 
     class IServer{
 
     public:
 
-        virtual void open(int port) = 0;
+        virtual void open(int port, IClientHandler clientHandler) = 0;
 
         virtual void recv() = 0;
 
