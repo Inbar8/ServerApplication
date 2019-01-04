@@ -12,19 +12,19 @@ namespace server_side {
 
     class MyTestClientHandler : public IClientHandler {
 
-        ISolver *Solver;
+        ISolver<std::string, std::string> *Solver;
         ICacheManager *cacheManager;
 
 
 
     public:
-        MyTestClientHandler(ISolver *Solver, ICacheManager *cacheManager) : Solver(Solver),
+        MyTestClientHandler(ISolver<std::string, std::string> *Solver, ICacheManager *cacheManager) : Solver(Solver),
             cacheManager(cacheManager) {}
 
         void handleClient(std::istream inputStream, std::ostream outputStream) override {
             //TODO
 
-            inputStream.getline();
+
 
 
         }
