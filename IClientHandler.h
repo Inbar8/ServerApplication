@@ -1,7 +1,3 @@
-//
-// Created by shaked on 1/3/19.
-//
-
 #ifndef SERVERAPPLICATION_CLIENTHANDLER_H
 #define SERVERAPPLICATION_CLIENTHANDLER_H
 

@@ -5,11 +5,12 @@
 
 namespace server_side {
 
+    template <class P, class S>
     class ISolver {
 
     public:
 
-        virtual void solve() = 0;
+        virtual S solve(P) = 0;
 
     };
 }
