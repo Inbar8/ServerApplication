@@ -8,6 +8,8 @@
 #include "ICacheManager.h"
 #include "TcpServer.h"
 
+#define END "end"
+
 namespace server_side {
 
 
@@ -24,8 +26,16 @@ namespace server_side {
 
         void handleClient(int socketID) override {
 
-//            while
-//            TcpServer::readLine(socketID);
+            std::string curLine;
+
+
+            while (END != (curLine = TcpServer::readLine(socketID))){
+
+
+
+
+            }
+
 
 
 
