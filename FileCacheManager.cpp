@@ -5,9 +5,17 @@
 #include "FileCacheManager.h"
 
 void server_side::FileCacheManager::tryLoad() {
-    //TODO
+
+//    ifstream stream;
+//    stream.open(fileName, ios::in | ios::app);
+//    stream.close();
+
 }
 
 void server_side::FileCacheManager::saveToCache() {
     //TODO
+
+//    ofstream empFile;
+//
+//    empFile.close();
 }
