@@ -11,10 +11,7 @@ namespace server_side{
 
         virtual void open(int port, IClientHandler *clientHandler) = 0;
 
-        virtual void recv() = 0;
-
         virtual void stop() = 0;
-
 
 
     };
