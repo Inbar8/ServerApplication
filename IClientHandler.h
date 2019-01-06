@@ -11,7 +11,7 @@ namespace server_side{
 
     public:
 
-        virtual void handleClient(std::istream inputStream, std::ostream outputStream) = 0;
+        virtual void handleClient(int socketID) = 0;
 
     };
 

@@ -21,7 +21,7 @@ namespace server_side {
         MyTestClientHandler(ISolver<std::string, std::string> *Solver, ICacheManager *cacheManager) : Solver(Solver),
             cacheManager(cacheManager) {}
 
-        void handleClient(std::istream inputStream, std::ostream outputStream) override {
+        void handleClient(int socketID) override {
             //TODO
 
 
