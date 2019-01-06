@@ -6,6 +6,8 @@
 #include <string>
 #include "StringReverser.h"
 #include "MySerialServer.h"
+#include "FileCacheManager.h"
+#include "MyTestClientHandler.h"
 
 namespace boot {
 
@@ -22,10 +24,14 @@ namespace boot {
 
             auto stringSolver = new server_side::StringReverser();
             auto serialServer = new server_side::MySerialServer();
-            
+            auto fCacheManager = new server_side::FileCacheManager();
+            auto handler = new server_side::MyTestClientHandler(stringSolver, fCacheManager);
+
+            serialServer->open(port, handler);
 
 
-            using namespace boot;
+
+            return 0;
         }
 
 

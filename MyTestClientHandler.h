@@ -6,6 +6,7 @@
 #include "IClientHandler.h"
 #include "ISolver.h"
 #include "ICacheManager.h"
+#include "TcpServer.h"
 
 namespace server_side {
 
@@ -22,7 +23,9 @@ namespace server_side {
             cacheManager(cacheManager) {}
 
         void handleClient(int socketID) override {
-            //TODO
+
+            while
+            TcpServer::readLine(socketID);
 
 
 
