@@ -32,6 +32,8 @@ namespace server_side {
 
         static std::string readLine(int socketId);
 
+        static void writeToClient(int socketId, std::string message);
+
         static void closeSocket(int socketId);
 
 

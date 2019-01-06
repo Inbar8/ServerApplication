@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
 
     //TODO free memory
 
+    getchar();
+
     return 0;
 
 }
