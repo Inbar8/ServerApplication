@@ -38,7 +38,7 @@ namespace server_side {
 
             std::string reversed = solver->solve(linesVector.at(0));
 
-            //TODO need to send "reversed" to client!
+            TcpServer::writeToClient(socketID, reversed);
 
         }
 
