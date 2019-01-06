@@ -28,3 +28,5 @@ int main(int argc, char **argv) {
     return 0;
 
 }
+
+//TODO check what to do with flush

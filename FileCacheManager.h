@@ -5,8 +5,14 @@
 #ifndef SERVERAPPLICATION_FILECACHEMANAGER_H
 #define SERVERAPPLICATION_FILECACHEMANAGER_H
 
+
 #include <map>
+
+
 #include "ICacheManager.h"
+#include "Utils.h"
+#define CACHE "cache_file.txt"
+#define SPLIT_CHAR '$'
 
 namespace server_side{
 
@@ -19,9 +25,12 @@ namespace server_side{
 
     public:
 
-        void tryLoad() override;
 
-        void saveToCache() override;
+        bool isExistsInCache(std::string key) override;
+
+        std::string loadFromCache(std::string key) override;
+
+        void saveToCache(std::string key, std::string solution) override;
 
     };
 
