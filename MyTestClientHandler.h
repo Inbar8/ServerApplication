@@ -26,19 +26,20 @@ namespace server_side {
 
         void handleClient(int socketID) override {
 
-            std::vector<std::string> linesVector;
-
             std::string curLine;
 
             while (END != (curLine = TcpServer::readLine(socketID))){
-                linesVector.push_back(curLine);
+
+                std::string reversed = solver->solve(curLine);
+
+                TcpServer::writeToClient(socketID, reversed);
             }
 
-            if (linesVector.size() > 1) throw "input is longer than 1 line";
 
-            std::string reversed = solver->solve(linesVector.at(0));
 
-            TcpServer::writeToClient(socketID, reversed);
+
+
+
 
         }
 
