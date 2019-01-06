@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 
     if(argc < 1) throw "usage: <executable> <port>";
 
-    int port = std::stoi(argv[0]);
+    int port = std::stoi(argv[1]);
 
     auto stringSolver = new server_side::StringReverser();
     auto serialServer = new server_side::MySerialServer();
@@ -19,6 +19,9 @@ int main(int argc, char **argv) {
     auto handler = new server_side::MyTestClientHandler(stringSolver, fCacheManager);
 
     serialServer->open(port, handler);
+
+
+    //TODO free memory
 
     return 0;
 
