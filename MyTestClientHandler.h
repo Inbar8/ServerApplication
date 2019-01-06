@@ -30,7 +30,14 @@ namespace server_side {
 
             while (END != (curLine = TcpServer::readLine(socketID))){
 
-                std::string reversed = solver->solve(curLine);
+                std::string reversed;
+
+                if (cacheManager->isExistsInCache(curLine)){
+                    reversed = cacheManager->loadFromCache(curLine);
+                } else {
+                    reversed = solver->solve(curLine);
+                    cacheManager->saveToCache(curLine, reversed);
+                }
 
                 TcpServer::writeToClient(socketID, reversed);
             }
