@@ -17,7 +17,7 @@ class MyMain {
 
 public:
 
-    int main(int argc, char **argv);
+    static int main(int argc, char **argv);
 
 };
 
