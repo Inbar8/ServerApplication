@@ -26,6 +26,8 @@ namespace server_side {
 
         void handleClient(int socketID) override {
 
+            std::vector<std::string>
+
             std::string curLine;
 
 
