@@ -12,10 +12,6 @@ namespace server_side{
         bool* keepRunning;
         std::thread serverThread;
 
-        //TODO declerations
-
-
-
     public:
 
         MySerialServer();

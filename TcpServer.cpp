@@ -48,15 +48,15 @@ namespace server_side {
         clilen = sizeof(cli_addr);
         int newsockfd; // new socket fileDescriptor
 
+        //set accept timeout
+        struct timeval tv;
+        tv.tv_sec = 30;       /* Timeout in seconds */
+        setsockopt(mainSocketId, SOL_SOCKET, SO_SNDTIMEO,(struct timeval *)&tv,sizeof(struct timeval));
+        setsockopt(mainSocketId, SOL_SOCKET, SO_RCVTIMEO,(struct timeval *)&tv,sizeof(struct timeval));
+
 
         //accept actual connection from the client
         newsockfd = accept(mainSocketId, (struct sockaddr *) &cli_addr, (socklen_t *) &clilen);
-
-        //if connections with the client failed
-        if (newsockfd < 0) {
-            perror("ERROR on accept");
-            exit(1);
-        }
 
         return newsockfd;
     }

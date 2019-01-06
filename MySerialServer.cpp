@@ -23,6 +23,8 @@ void server_side::MySerialServer::open(int port, server_side::IClientHandler *cl
 
             int clientSocketId = TcpServer::acceptConnection(mainSocketId);
 
+            if(clientSocketId < 0) continue;
+
             clientHandler->handleClient(clientSocketId);
 
             TcpServer::closeSocket(clientSocketId);
