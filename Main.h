@@ -13,11 +13,11 @@
 #include "MyTestClientHandler.h"
 
 
-class MyMain {
+class Main {
 
 public:
 
-    static int main(int argc, char **argv);
+    int main(int argc, char **argv);
 
 };
 
