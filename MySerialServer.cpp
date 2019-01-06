@@ -2,24 +2,36 @@
 
 #include <thread>
 #include "MySerialServer.h"
+#include "TcpServer.h"
 
 
-server_side::MySerialServer::MySerialServer() {run = true;}
+server_side::MySerialServer::MySerialServer() {
+
+    this->keepRunning = new bool();
+    *(this->keepRunning) = true;
+
+}
 
 
 void server_side::MySerialServer::open(int port, server_side::IClientHandler *clientHandler) {
 
-            //TODO open different thread
+    int mainSocketId = TcpServer::listenToPort(port);
 
-    while (run) {
+    serverThread = std::thread([](int mainSocketId,server_side::IClientHandler *clientHandler, bool* keepRunning){
 
-        //TODO listen to client at given port
-        //TODO open input and output stream with the client and send to handleClient
+        while (*keepRunning) {
 
-        //clientHandler.handleClient()
+            int clientSocketId = TcpServer::acceptConnection(mainSocketId);
 
-    }
-            //TODO open different thread
+            clientHandler->handleClient(clientSocketId);
+
+            TcpServer::closeSocket(clientSocketId);
+
+        }
+
+        TcpServer::closeSocket(mainSocketId);
+
+    }, mainSocketId, clientHandler, keepRunning);
 
 
 }
@@ -27,7 +39,12 @@ void server_side::MySerialServer::open(int port, server_side::IClientHandler *cl
 
 void server_side::MySerialServer::stop() {
 
-    this->run = false;
+    *(this->keepRunning) = false;
+
+    //wait for the thread to end
+    serverThread.join();
+    delete this->keepRunning;
+
 
 }
 

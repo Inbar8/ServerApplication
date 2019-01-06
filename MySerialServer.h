@@ -2,13 +2,15 @@
 #ifndef SERVERAPPLICATION_MYSERIALSERVER_H
 #define SERVERAPPLICATION_MYSERIALSERVER_H
 
+#include <thread>
 #include "IServer.h"
 
 namespace server_side{
 
     class MySerialServer : public IServer  {
 
-        bool run;
+        bool* keepRunning;
+        std::thread serverThread;
 
         //TODO declerations
 
